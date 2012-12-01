@@ -1,4 +1,14 @@
 Masterit::Application.routes.draw do
+
+  scope :module => :web do
+
+    namespace :admin do
+      root :to => 'dashboard#index'
+
+    end
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
