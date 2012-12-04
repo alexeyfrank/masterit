@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password
 
   validates :email, :presence => true, :uniqueness => true, :email => true
+  validates :password, :presence => true, :length => { :minimum => 5 }
 end

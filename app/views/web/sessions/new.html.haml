@@ -1,0 +1,6 @@
+%h1= t 'views.sessions.new.title'
+
+= simple_form_for(:user, :url => session_path) do |f|
+  = f.input :email
+  = f.input :password
+  = f.submit

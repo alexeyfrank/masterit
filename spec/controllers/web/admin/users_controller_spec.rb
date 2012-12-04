@@ -4,6 +4,7 @@ describe Web::Admin::UsersController do
 
   before do
     @user = create(:user)
+    sign_in @user
     @default_params = {
       :email => 'test_user@test.com',
       :password => '12345'

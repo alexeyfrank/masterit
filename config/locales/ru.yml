@@ -3,6 +3,12 @@
 
 ru:
   views:
+    sessions:
+      user_successfully_logged_in: "Аутентификация прошла успешно!"
+      invalid_email_or_password: "Неверное имя пользователя или пароль!"
+      new:
+        title: "Вход в административную панель сайта"
+
     admin:
       users:
         index:
