@@ -1,10 +1,12 @@
 Masterit::Application.routes.draw do
 
   scope :module => :web do
+    resource :session
 
     namespace :admin do
       root :to => 'dashboard#index'
 
+      resources :users
     end
   end
 
