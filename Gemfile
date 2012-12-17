@@ -18,6 +18,9 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+gem 'ledermann-rails-settings', :require => 'rails-settings'
+gem "ancestry"
+gem "simple-navigation"
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 gem 'configus'
@@ -36,4 +39,6 @@ gem 'unicorn'
 gem 'simple_form'
 gem 'ransack'
 gem 'to_xls'
+gem "ckeditor"
 gem 'draper'
+gem 'acts-as-taggable-on', '~> 2.3.1'

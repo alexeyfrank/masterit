@@ -7,7 +7,7 @@ ru:
       user_successfully_logged_in: "Аутентификация прошла успешно!"
       invalid_email_or_password: "Неверное имя пользователя или пароль!"
       new:
-        title: "Вход в административную панель сайта"
+        title: "Вход"
 
     admin:
       users:
@@ -20,6 +20,16 @@ ru:
           title: "Создание нового пользователя"
         edit:
           title: "Редактирование пользователя"
+      pages:
+        index:
+          title: "Список страниц"
+          add_new_page: "Добавить новую страницу"
+          edit_page: "Редактировать"
+          delete_page: "Удалить"
+        new:
+          title: "Создание новой страницы"
+        edit:
+          title: "Редактирование страницы"
 
   activerecord:
     models:
@@ -29,3 +39,8 @@ ru:
         first_name: "Имя"
         last_name: "Фамилия"
         password: "Пароль"
+      page:
+        title: "Название"
+        content: "Содержимое"
+        author: "Автор"
+        slug: "УРЛ"

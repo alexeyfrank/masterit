@@ -8,16 +8,18 @@
 %table.table.table-bordered
   %thead
     %tr
+      %th.id-col #
       %th= t('activerecord.attributes.users.email')
       %th= t('activerecord.attributes.user.first_name')
       %th= t('activerecord.attributes.user.last_name')
-      %th
+      %th.actions-col
   %tbody
     - @users.each do |user|
       %tr
+        %td.id-col= user.id
         %td= link_to user.email, edit_admin_user_path(user)
         %td= user.first_name
         %td= user.last_name
-        %td
+        %td.actions-col
           = link_to t('views.admin.users.index.edit_user'), edit_admin_user_path(user), :class => 'btn btn-info'
           = link_to t('views.admin.users.index.delete_user'), admin_user_path(user), :method => :delete, :class => 'btn btn-alert'

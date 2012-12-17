@@ -28,6 +28,10 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.3.3)
+      rails (~> 3.0)
+    ancestry (1.3.0)
+      activerecord (>= 2.3.14)
     ansi (1.4.3)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
@@ -35,6 +39,9 @@ GEM
     carrierwave (0.7.1)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    ckeditor (3.7.3)
+      mime-types
+      orm_adapter
     client_side_validations (3.2.1)
     client_side_validations-simple_form (2.0.1)
       client_side_validations (~> 3.2.0)
@@ -79,6 +86,8 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.7.4)
+    ledermann-rails-settings (1.2.0)
+      activerecord (>= 2.3)
     less (2.2.2)
       commonjs (~> 0.2.6)
     less-rails (2.2.6)
@@ -94,6 +103,7 @@ GEM
       subexec (~> 0.2.1)
     minitest (3.3.0)
     multi_json (1.4.0)
+    orm_adapter (0.4.0)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -146,6 +156,8 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple-navigation (3.9.0)
+      activesupport (>= 2.3.2)
     simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -193,8 +205,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 2.3.1)
+  ancestry
   bcrypt-ruby (~> 3.0.0)
   carrierwave
+  ckeditor
   client_side_validations
   client_side_validations-simple_form
   cocoon
@@ -205,6 +220,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   kaminari
+  ledermann-rails-settings
   less-rails
   mini_magick
   rails (= 3.2.8)
@@ -212,6 +228,7 @@ DEPENDENCIES
   rspec-rails
   russian
   sass-rails (~> 3.2.3)
+  simple-navigation
   simple_form
   sqlite3
   state_machine

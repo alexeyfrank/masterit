@@ -23,7 +23,7 @@ describe Web::Admin::UsersController do
 
   it 'should post :create' do
     post :create, :user => @default_params
-    expect(response).to be_redirect
+    expect(response).to be_success
     user = User.find_by_email(@default_params[:email])
     user.should_not be_nil
   end
@@ -32,7 +32,7 @@ describe Web::Admin::UsersController do
     put :update, :id => @user.id, :user => @default_params
     user = User.find(@user)
     user.email.should == @default_params[:email]
-    expect(response).to be_redirect
+    expect(response).to be_success
   end
 
   it 'should delete :destroy' do

@@ -1,4 +1,7 @@
 class Web::SessionsController < Web::ApplicationController
+
+  layout "web/admin/login"
+
   def new
   end
 

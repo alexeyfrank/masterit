@@ -12,10 +12,8 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     @user = User.new params[:user]
     if @user.save
       flash[:notice] = "User successfully added!"
-      redirect_to admin_users_path
-    else
-      render :new
     end
+    render :new
   end
 
   def edit
@@ -26,10 +24,8 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes params[:user]
       flash[:notice] = "User successfully updated"
-      redirect_to admin_users_path
-    else
-      render :edit
     end
+    render :edit
   end
 
   def destroy

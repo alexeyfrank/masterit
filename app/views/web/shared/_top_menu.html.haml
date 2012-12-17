@@ -1,0 +1,15 @@
+%ul.nav.nav-pills
+  - @items.each do |item|
+    - if item.has_children?
+      %li.dropdown{ :class => "#{item.klass} #{item.current?(request.url) && "active"}" }
+        %a.dropdown-toggle{:role => 'button', :"data-toggle" => "dropdown", :href => "#{item.slug}" }
+          = item.name
+          %b.caret
+        %ul.dropdown-menu{ :role => 'menu' }
+          - item.children.each do |child|
+            %li{:class => "#{child.klass} #{child.current?(request.url) && "active"}" }
+              = link_to child.name, "#{child.slug}"
+            
+    - else
+      %li{ :class => "#{item.klass} #{item.current?(request.url) && "active"}" }
+        = link_to item.name, "#{item.slug}"
