@@ -10,6 +10,6 @@ class MenuItem < ActiveRecord::Base
   has_ancestry
 
   def current?(request_uri)
-    slug == request_uri
+    "/#{slug}" == request_uri
   end
 end
