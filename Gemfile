@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'sqlite3'
+gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -12,13 +12,14 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'turn'
   gem 'tconsole'
   gem 'factory_girl_rails'
 end
 
-gem 'heroku'
+# gem 'heroku'
 gem 'dump'
 gem 'ledermann-rails-settings', :require => 'rails-settings'
 gem "ancestry"
