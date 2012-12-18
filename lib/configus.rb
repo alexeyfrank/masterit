@@ -1,14 +1,14 @@
 Configus.build Rails.env do
-  env :development do
+  env :production do
     site_name "Master IT"
     admin_entities_per_page 10
   end
 
-  env :test, :parent => :development do
+  env :test, :parent => :production do
 
   end
 
-  env :production, :parent => :development do
+  env :development, :parent => :production do
 
   end
 end
