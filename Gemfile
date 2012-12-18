@@ -18,7 +18,7 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
-# gem 'backup'
+gem 'heroku'
 gem 'dump'
 gem 'ledermann-rails-settings', :require => 'rails-settings'
 gem "ancestry"
