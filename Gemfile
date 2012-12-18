@@ -19,6 +19,7 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+gem 'unicorn'
 # gem 'heroku'
 gem 'dump'
 gem 'ledermann-rails-settings', :require => 'rails-settings'
