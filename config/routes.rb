@@ -3,8 +3,6 @@ Masterit::Application.routes.draw do
 
   scope :module => :web do
     root to: 'pages#index'
-    match '/(:slug)' => 'pages#show' 
-    
     resource :session
 
     namespace :admin do
@@ -17,6 +15,8 @@ Masterit::Application.routes.draw do
         resources :menu_items
       end
     end
+
+    match '/(:slug)' => 'pages#show' 
   end
 
 
