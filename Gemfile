@@ -8,7 +8,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
-  gem 'less-rails'
 end
 
 group :development, :test do
@@ -19,6 +18,8 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+
+gem 'less-rails'
 gem 'unicorn'
 # gem 'heroku'
 gem 'dump'
