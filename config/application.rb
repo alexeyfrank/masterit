@@ -16,7 +16,7 @@ if defined?(Bundler)
 end
 
 require "configus"
-require File.expand_path('../lib/configus', __FILE__)
+require File.expand_path('../../lib/configus', __FILE__)
 
 module Masterit
   class Application < Rails::Application
