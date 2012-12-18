@@ -15,6 +15,9 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+require "configus"
+require File.expand_path('../../lib/configus', __FILE__)
+
 module Masterit
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
