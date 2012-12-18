@@ -1,4 +1,25 @@
 Masterit::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
+  scope :module => :web do
+    root to: 'pages#index'
+    match '/(:slug)' => 'pages#show' 
+    
+    resource :session
+
+    namespace :admin do
+      root :to => 'dashboard#index'
+
+      resources :settings
+      resources :users
+      resources :pages
+      resources :menus do
+        resources :menu_items
+      end
+    end
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
