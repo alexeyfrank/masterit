@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217103912) do
+ActiveRecord::Schema.define(:version => 20121219101137) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -78,6 +78,20 @@ ActiveRecord::Schema.define(:version => 20121217103912) do
   end
 
   add_index "settings", ["target_type", "target_id", "var"], :name => "index_settings_on_target_type_and_target_id_and_var", :unique => true
+
+  create_table "subscribers", :force => true do |t|
+    t.string   "email"
+    t.string   "fio"
+    t.string   "phone"
+    t.boolean  "processing_personal_data"
+    t.boolean  "notify_about_center_events"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "subscribers", ["email"], :name => "index_subscribers_on_email"
+  add_index "subscribers", ["notify_about_center_events"], :name => "index_subscribers_on_notify_about_center_events"
+  add_index "subscribers", ["processing_personal_data"], :name => "index_subscribers_on_processing_personal_data"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

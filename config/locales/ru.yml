@@ -3,6 +3,10 @@
 
 ru:
   views:
+
+    subscribers:
+      success_subscribe: 'Спасибо за вашу подписку!'
+      
     sessions:
       user_successfully_logged_in: "Аутентификация прошла успешно!"
       invalid_email_or_password: "Неверное имя пользователя или пароль!"
