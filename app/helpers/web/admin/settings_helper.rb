@@ -8,7 +8,9 @@ module Web::Admin::SettingsHelper
 
   private
     def store(key, value)
-      if value.is_a? UploadedFile
+      return false if value.blank?
+      p value
+      if value.is_a? ActionDispatch::Http::UploadedFile
         store_file key, value
       else
         store_string key, value
