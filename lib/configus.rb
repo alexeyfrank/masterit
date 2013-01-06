@@ -1,6 +1,5 @@
 Configus.build Rails.env do
   env :production do
-    site_name "Master IT"
     admin_entities_per_page 10
   end
 

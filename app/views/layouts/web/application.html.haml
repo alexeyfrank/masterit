@@ -25,8 +25,9 @@
       %hr 
       = render_menu id: 1, template: 'web/shared/top_menu'
       - if Integer(Settings.emergency_call_enabled) > 0
-        .notice
-          = Settings.emergency_call
+        .alert.fade.in.alert-success
+          %h3
+            = Settings.emergency_call
 		  
       = yield
       %hr

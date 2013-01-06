@@ -1,6 +1,6 @@
 class Web::Admin::SubscribersController < Web::Admin::ApplicationController
   def index
-    @subscribers = Subscriber.page(params[:page]).per(configus.admin_entities_per_page)
+    @subscribers = Subscriber.all #.page(params[:page]).per(configus.admin_entities_per_page)
   end
 
   def edit

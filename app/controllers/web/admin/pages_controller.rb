@@ -1,6 +1,6 @@
 class Web::Admin::PagesController < Web::Admin::ApplicationController
   def index
-    @pages = Page.page(params[:page]).per(configus.admin_entities_per_page)
+    @pages = Page.all #page(params[:page]).per(configus.admin_entities_per_page)
   end
 
   def new
