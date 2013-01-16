@@ -18,7 +18,6 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
-
 gem 'timepad'
 gem 'less-rails'
 gem 'unicorn'
