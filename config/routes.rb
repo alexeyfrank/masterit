@@ -20,7 +20,7 @@ Masterit::Application.routes.draw do
       end
     end
 
-    match '/(:slug)' => 'pages#show' 
+    match '/(:slug)' => 'pages#show', as: 'show_page'
   end
 
 

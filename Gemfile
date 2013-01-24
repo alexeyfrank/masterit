@@ -27,7 +27,7 @@ gem 'ledermann-rails-settings', :require => 'rails-settings'
 gem "ancestry"
 gem "simple-navigation"
 gem 'haml-rails'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails' # , '2.2.0', :path => "vendor/gems/twitter-bootstrap-rails-2.2.0"
 gem 'configus'
 gem 'state_machine'
 gem "carrierwave"
