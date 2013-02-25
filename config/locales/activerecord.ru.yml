@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password: "Пароль"
+        password_confirmation: 'Подтверждение пароля'
+      page:
+        title: "Название"
+        content: "Содержимое"
+        author: "Автор"
+        slug: "УРЛ"

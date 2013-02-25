@@ -1,36 +1,43 @@
 class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   def index
-    @users = User.all
+    @users = User.web
   end
 
   def new
-    @user = User.new
+    @user = ::Web::Admin::UserEditType.new
   end
 
   def create
-    @user = User.new params[:user]
+    @user = ::Web::Admin::UserEditType.new params[:user]
     if @user.save
-      flash[:notice] = "User successfully added!"
+      flash_success
+      redirect_to edit_admin_user_path(@user)
+    else
+      flash_error
+      render :new
     end
-    render :new
   end
 
   def edit
-    @user = User.find params[:id]
+    @user = ::Web::Admin::UserEditType.find params[:id]
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = ::Web::Admin::UserEditType.find(params[:id])
     if @user.update_attributes params[:user]
-      flash[:notice] = "User successfully updated"
+      flash_success
+      redirect_to edit_admin_user_path(@user)
+    else
+      flash_error
+      render :edit
     end
-    render :edit
   end
 
   def destroy
     @user = User.find(params[:id])
-    @user.delete
+    @user.destroy
+    flash_success
     redirect_to admin_users_path
   end
 end

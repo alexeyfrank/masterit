@@ -2,24 +2,18 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
-  views:
-
-    subscribers:
-      success_subscribe: 'Спасибо за вашу подписку!'
-      
+  web:
     sessions:
-      user_successfully_logged_in: "Аутентификация прошла успешно!"
-      invalid_email_or_password: "Неверное имя пользователя или пароль!"
       new:
-        title: "Вход"
-
+        title: 'Вход'
+        submit: 'Войти'
     admin:
       users:
         index:
           title: "Список пользователей"
-          add_new_user: "Добавить нового пользователя"
-          edit_user: "Редактировать"
-          delete_user: "Удалить"
+          add: "Добавить нового пользователя"
+          edit: "Редактировать"
+          delete: "Удалить"
         new:
           title: "Создание нового пользователя"
         edit:
@@ -35,16 +29,12 @@ ru:
         edit:
           title: "Редактирование страницы"
 
-  activerecord:
-    models:
-      user: "пользователя"
-    attributes:
-      user:
-        first_name: "Имя"
-        last_name: "Фамилия"
-        password: "Пароль"
-      page:
-        title: "Название"
-        content: "Содержимое"
-        author: "Автор"
-        slug: "УРЛ"
+
+
+
+
+
+    subscribers:
+      success_subscribe: 'Спасибо за вашу подписку!'
+
+

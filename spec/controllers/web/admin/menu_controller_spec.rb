@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Web::Admin::MenuController do
+describe Web::Admin::MenusController do
 
   describe "GET 'index'" do
     it "returns http success" do

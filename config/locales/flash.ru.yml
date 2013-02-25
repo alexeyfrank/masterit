@@ -1,0 +1,18 @@
+ru:
+  flash:
+    controllers:
+      web:
+        sessions:
+          create:
+            success: 'Вы успешно вошли!'
+
+        admin:
+          users:
+            create:
+              success: 'Пользователь успешно добавлен!'
+              error: 'Есть ошибки в заполнении формы!'
+            update:
+              success: 'Пользователь успешно обновлен!'
+              error: 'Есть ошибки в заполнении формы!'
+            destroy:
+              success: 'Пользователь успешно удален!'
