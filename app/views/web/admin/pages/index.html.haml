@@ -1,7 +1,7 @@
-%h1 Страницы
+%h1= t '.title'
 
 %br
-= link_to t('views.admin.pages.index.add_new_page'), new_admin_page_path, :class => 'btn btn-primary'
+= link_to t('.add'), new_admin_page_path, class: 'btn btn-primary'
 %br
 %br
 
@@ -9,19 +9,22 @@
   %thead
     %tr
       %th.id-col #
-      %th= t('activerecord.attributes.pages.title')
-      %th= t('activerecord.attributes.pages.slug')
-      %th= t('activerecord.attributes.pages.author')
+      %th= Page.human_attribute_name :title
+      %th= Page.human_attribute_name :slug
+      %th= Page.human_attribute_name :state
+      %th= Page.human_attribute_name :created_at
+      %th= Page.human_attribute_name :updated_at
       %th.actions-col
   %tbody
     - @pages.each do |page|
       %tr
         %td.id-col= page.id
-        %td= link_to page.title, edit_admin_page_path(page)
-        %td= link_to page.slug, edit_admin_page_path(page)
-        %td= link_to page.author.email, edit_admin_user_path(page.author.id)
+        %td= link_to page, edit_admin_page_path(page)
+        %td= page.slug
+        %td= page.state
+        %td= l page.created_at
+        %td= l page.updated_at
         %td.actions-col
-          = link_to t('views.admin.pages.index.edit_page'), edit_admin_page_path(page), class: 'btn btn-info'
-          = link_to t('views.admin.pages.index.delete_page'), admin_page_path(page), method: :delete, class: 'btn btn-alert'
+          = link_to t('.edit'), edit_admin_page_path(page), class: 'btn btn-info'
+          = link_to t('.delete'), admin_page_path(page), method: :delete, class: 'btn btn-alert'
 
-/ = paginate @pages

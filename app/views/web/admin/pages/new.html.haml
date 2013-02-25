@@ -1,4 +1,3 @@
-%h1= t('views.admin.pages.new.title')
+%h1= t('.title')
 
-= simple_form_for(@page, :url => admin_pages_path) do |f|
-  = render 'form', :f => f
+= render 'form'
