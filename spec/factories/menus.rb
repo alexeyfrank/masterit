@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :menu do
-    name "MyString"
-    description "MyString"
+    name
+    description
   end
 end

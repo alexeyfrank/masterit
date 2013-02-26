@@ -8,9 +8,10 @@ FactoryGirl.define do
     "12345"
   end
 
-  [:first_name, :last_name,
-   :slug, :title, :content, :photo, :description].each do |trait|
-
+  [
+      :first_name, :last_name, :name,:slug, :title,
+      :content, :photo, :description
+  ].each do |trait|
     sequence trait do |n|
       "#{trait}_#{n}"
     end

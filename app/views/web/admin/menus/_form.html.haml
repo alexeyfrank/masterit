@@ -1,3 +1,4 @@
-= f.input :name
-= f.input :description, as: :text, input_html: { rows: 8, cols: 70 }
-= f.submit
+= simple_form_for [:admin, @menu] do |f|
+  = f.input :name
+  = f.input :description, as: :text, input_html: { rows: 8, cols: 70 }
+  = f.submit

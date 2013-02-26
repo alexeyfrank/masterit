@@ -1,54 +1,49 @@
 require 'spec_helper'
 
 describe Web::Admin::MenusController do
-
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
-    end
+  before do
+    @user = create :user
+    sign_in @user
+    @menu = create :menu
   end
 
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
+  it 'should get :index' do
+    get :index
+    expect(response).to be_success
   end
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
+  it "should get :new" do
+    get :new
+    expect(response).to be_success
   end
 
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
+  it "should post :create" do
+    attrs = attributes_for :menu
+    post :create, menu: attrs
+    expect(response).to be_redirect
+    menu = Menu.find_by_name attrs[:name]
+    expect(menu).to_not be_nil
+    expect(menu.description).to eq(attrs[:description])
   end
 
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
+  it "should get :edit" do
+    get :edit, id: @menu.id
+    expect(response).to be_success
   end
 
-  describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
-      response.should be_success
-    end
+  it "should put :update" do
+    attrs = attributes_for :menu
+    put :update, id: @menu.id, menu: attrs
+    expect(response).to be_redirect
+    menu = Menu.find_by_name attrs[:name]
+    expect(menu).to_not be_nil
+    expect(menu.description).to eq(attrs[:description])
+    expect(menu.id).to eq(@menu.id)
   end
 
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
+  it 'should delete :destroy' do
+    delete :destroy, id: @menu.id
+    expect(response).to be_redirect
+    expect(Menu.exists? @menu).to be_false
   end
-
 end
