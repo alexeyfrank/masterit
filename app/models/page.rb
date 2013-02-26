@@ -28,4 +28,8 @@ class Page < ActiveRecord::Base
     title
   end
 
+  def to_param
+    slug
+  end
+
 end

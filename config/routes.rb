@@ -1,3 +1,4 @@
+
 Masterit::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -21,6 +22,6 @@ Masterit::Application.routes.draw do
       end
     end
 
-    match '/(:slug)' => 'pages#show', as: 'show_page'
+    match '/(:id)' => 'pages#show', as: 'show_page'
   end
 end

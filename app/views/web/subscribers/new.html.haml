@@ -2,9 +2,9 @@
   .modal-header
     %h3 Сообщать мне о событиях Центра
   .modal-body
-    = f.input :fio, label: false, placeholder: 'ФИО', input_html: { class: 'span4' }
-    = f.input :phone, label: false, placeholder: 'Ваш телефон', input_html: { class: 'span4' }
-    = f.input :email, label: false, placeholder: 'Email', input_html: { class: 'span4' }
+    = f.input :fio, label: false, placeholder: Subscriber.human_attribute_name(:fio), input_html: { class: 'span4' }
+    = f.input :phone, label: false, placeholder: Subscriber.human_attribute_name(:phone), input_html: { class: 'span4' }
+    = f.input :email, label: false, placeholder: Subscriber.human_attribute_name(:email), input_html: { class: 'span4' }
     = f.input :notify_about_center_events
     = f.input :processing_personal_data
   .modal-footer

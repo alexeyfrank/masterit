@@ -3,6 +3,6 @@ class Web::PagesController < Web::ApplicationController
   end
 
   def show
-    @page = Page.find_by_slug! params[:slug]
+    @page = Page.find_by_slug! params[:id]
   end
 end
