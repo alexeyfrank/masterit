@@ -1,5 +1,8 @@
-class MenuItem < ActiveRecord::Base
+class Menu::Item < ActiveRecord::Base
+  include MenuItemRepository
+
   attr_accessible :ancestry, :klass, :name, :slug, :menu_id, :position, :parent_id
+
   belongs_to :menu
 
   validates :name, presence: true
@@ -12,8 +15,5 @@ class MenuItem < ActiveRecord::Base
   def self.to_tree(menu_id)
     self.where(menu_id: menu_id).arrange(:order => :position)
   end
-  # 
-  # def current?(request_uri)
-  #   "/#{slug}" == request_uri
-  # end
+
 end

@@ -1,9 +1,7 @@
-%h1= "Элементы меню #{@menu.name}"
-
-.menu-items-modal.modal.hide.fade
+%h1=t '.title', menu: @menu.name
 
 %br
-= link_to "Добавить элемент меню", new_admin_menu_menu_item_path, class: 'add-menu-item-btn btn btn-primary'
+= link_to t('.add'), new_admin_menu_menu_item_path, class: 'add-menu-item-btn btn btn-primary'
 %br
 %br
 
@@ -11,3 +9,5 @@
   - @items.each do |item|
     = render 'item', item: item
 
+
+.menu-items-modal.modal.hide.fade

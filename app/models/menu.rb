@@ -3,7 +3,7 @@ class Menu < ActiveRecord::Base
 
   attr_accessible :description, :name
 
-  has_many :menu_items
+  has_many :items, class_name: 'Menu::Item'
 
   def to_s
     name

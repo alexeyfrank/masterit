@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :menu_item do
-    name "MyString"
-    slug "MyString"
-    ancestry "MyString"
-    klass "MyString"
+    name
+    slug
+    ancestry
+    klass
   end
 end

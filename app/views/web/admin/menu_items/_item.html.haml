@@ -1,19 +1,16 @@
 %li
   .block
     %span
-      %strong Название:
-      = item.name
+      %strong #{Menu::Item.human_attribute_name :name}: #{item.name}
     %span
-      %strong УРЛ:
-      = item.slug
+      %strong #{Menu::Item.human_attribute_name :slug}: #{item.slug}
     %span
-      %strong Сорт.:
-      = item.position
-      %br
-      = link_to "Редактировать", edit_admin_menu_menu_item_path(@menu.id, item.id), class: 'edit-menu-item-btn'
+      %strong #{Menu::Item.human_attribute_name :position}: #{item.position}
+      = link_to t('.edit'), edit_admin_menu_menu_item_path(@menu, item), class: 'edit-menu-item-btn'
       |
-      = link_to "Удалить", admin_menu_menu_item_path(@menu.id, item.id), class: 'delete-menu-item-btn', method: :delete
+      = link_to t('.delete'), admin_menu_menu_item_path(@menu, item), class: 'delete-menu-item-btn', method: :delete
+
   - if item.has_children?
     %ul
-      - item.children.each do |child|
+      - item.children.web.each do |child|
         = render 'item', item: child    

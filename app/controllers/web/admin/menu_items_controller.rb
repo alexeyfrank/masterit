@@ -2,45 +2,53 @@ class Web::Admin::MenuItemsController < Web::Admin::ApplicationController
   layout false, only: [:new, :edit]
 
   def index
-    @menu = Menu.find params[:menu_id]
-    @items = @menu.menu_items.order(:position).roots
+    @menu = get_menu
+    @items = @menu.items.web.roots
   end
 
   def new
-    @items = MenuItem.where menu_id: params[:menu_id]
-    @item = MenuItem.new menu_id: params[:menu_id]
+    @menu = get_menu
+    @item = Menu::Item.new
   end
 
   def create
-    @menu = Menu.find params[:menu_id]
-    @menu_item = MenuItem.new params[:menu_item]
-    @menu_item.menu = @menu
-    if @menu_item.save
-      flash[:notice] = "Menu Item successfully created"
-    else
-      flash[:error] = "Menu Item has errors"
+    @menu = get_menu
+    @item = Menu::Item.new params[:menu_item] do
+      menu = @menu
     end
-    redirect_to admin_menu_menu_items_path(@menu.id)
+    if @item.save
+      flash_success
+    else
+      flash_error
+    end
+    redirect_to admin_menu_menu_items_path(@menu)
   end
 
   def edit
-    @items = MenuItem.where menu_id: params[:menu_id]
-    @item = MenuItem.find params[:id]
+    @menu = get_menu
+    @item = @menu.items.find params[:id]
   end
 
   def update
-    @item = MenuItem.find params[:id]
+    @menu = get_menu
+    @item = @menu.items.find params[:id]
+
     if @item.update_attributes params[:menu_item]
-      flash[:notice] = "Menu Item successfully created"
+      flash_success
     else
-      flash[:error] = "Menu Item has errors"
+      flash_error
     end
-    redirect_to admin_menu_menu_items_path(@item.menu_id)
+    redirect_to admin_menu_menu_items_path(@menu)
   end
 
   def destroy
-    @item = MenuItem.find params[:id]
+    @item = get_menu.items.find params[:id]
     @item.destroy
     redirect_to admin_menu_menu_items_path
+  end
+
+  private
+  def get_menu
+    @menu ||= Menu.find params[:menu_id]
   end
 end
