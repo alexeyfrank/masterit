@@ -10,11 +10,14 @@ FactoryGirl.define do
 
   [
       :first_name, :last_name, :name,:slug, :title,
-      :content, :photo, :description
+      :content, :photo, :description, :fio, :phone
   ].each do |trait|
     sequence trait do |n|
       "#{trait}_#{n}"
     end
+  end
 
+  sequence :position do |n|
+    n
   end
 end

@@ -6,9 +6,9 @@
       %strong #{Menu::Item.human_attribute_name :slug}: #{item.slug}
     %span
       %strong #{Menu::Item.human_attribute_name :position}: #{item.position}
-      = link_to t('.edit'), edit_admin_menu_menu_item_path(@menu, item), class: 'edit-menu-item-btn'
+      = link_to t('.edit'), edit_admin_menu_item_path(@menu, item), class: 'edit-menu-item-btn'
       |
-      = link_to t('.delete'), admin_menu_menu_item_path(@menu, item), class: 'delete-menu-item-btn', method: :delete
+      = link_to t('.delete'), admin_menu_item_path(@menu, item), class: 'delete-menu-item-btn', method: :delete
 
   - if item.has_children?
     %ul

@@ -1,4 +1,4 @@
-class Web::Admin::MenuItemsController < Web::Admin::ApplicationController
+class Web::Admin::Menu::ItemsController < Web::Admin::ApplicationController
   layout false, only: [:new, :edit]
 
   def index
@@ -13,15 +13,14 @@ class Web::Admin::MenuItemsController < Web::Admin::ApplicationController
 
   def create
     @menu = get_menu
-    @item = Menu::Item.new params[:menu_item] do
-      menu = @menu
-    end
+    @item = Menu::Item.new params[:menu_item]
+    @item.menu = @menu
     if @item.save
       flash_success
     else
       flash_error
     end
-    redirect_to admin_menu_menu_items_path(@menu)
+    redirect_to admin_menu_items_path(@menu)
   end
 
   def edit
@@ -38,13 +37,14 @@ class Web::Admin::MenuItemsController < Web::Admin::ApplicationController
     else
       flash_error
     end
-    redirect_to admin_menu_menu_items_path(@menu)
+    redirect_to admin_menu_items_path(@menu)
   end
 
   def destroy
     @item = get_menu.items.find params[:id]
     @item.destroy
-    redirect_to admin_menu_menu_items_path
+    flash_success
+    redirect_to admin_menu_items_path
   end
 
   private

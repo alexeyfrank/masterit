@@ -1,9 +1,10 @@
-module MenuItemRepository
+module SubscriberRepository
   extend ActiveSupport::Concern
+
   include UsefullScopes
 
   included do
-    scope :web, -> { asc_by_position }
+    scope :web, -> { by_created_at }
   end
 
 end

@@ -15,7 +15,9 @@ Masterit::Application.routes.draw do
       resources :pages
       resources :subscribers
       resources :menus do
-        resources :menu_items
+        scope module: :menu do
+          resources :items
+        end
       end
     end
 

@@ -2,18 +2,13 @@ require 'spec_helper'
 
 describe Web::Admin::SettingsController do
 
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
+  before do
+    @user = create :user
+    sign_in @user
   end
 
-  describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
-      response.should be_success
-    end
+  it 'should get :new' do
+    get :new
+    expect(response).to be_success
   end
-
 end

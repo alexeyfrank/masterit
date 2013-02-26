@@ -2,10 +2,9 @@
 
 FactoryGirl.define do
   factory :subscriber do
-    email "MyString"
-    fio "MyString"
-    phone "MyString"
-    processing_personal_data false
-    notify_about_center_events false
+    email
+    fio
+    phone
+    notify_about_center_events true
   end
 end

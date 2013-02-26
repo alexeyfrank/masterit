@@ -21,3 +21,14 @@ ru:
         state: 'Состояние'
         created_at: 'Дата создания'
         updated_at: 'Дата обновления'
+      menu/item:
+        name: 'Название'
+        slug: 'УРЛ'
+        parent_id: 'Родительский элемент'
+        position: 'Позиция'
+
+      subscriber:
+        fio: 'ФИО'
+        email: 'Email'
+        phone: 'Телефон'
+        created_at: 'Дата подписки'
