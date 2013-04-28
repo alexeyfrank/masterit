@@ -1,25 +1,20 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 ru:
-  views:
+  time:
+    formats:
+      default: "%d-%m-%Y %H:%M"
 
-    subscribers:
-      success_subscribe: 'Спасибо за вашу подписку!'
-      
+  web:
     sessions:
-      user_successfully_logged_in: "Аутентификация прошла успешно!"
-      invalid_email_or_password: "Неверное имя пользователя или пароль!"
       new:
-        title: "Вход"
-
+        title: 'Вход'
+        submit: 'Войти'
     admin:
       users:
         index:
           title: "Список пользователей"
-          add_new_user: "Добавить нового пользователя"
-          edit_user: "Редактировать"
-          delete_user: "Удалить"
+          add: "Добавить нового пользователя"
+          edit: "Редактировать"
+          delete: "Удалить"
         new:
           title: "Создание нового пользователя"
         edit:
@@ -27,24 +22,61 @@ ru:
       pages:
         index:
           title: "Список страниц"
-          add_new_page: "Добавить новую страницу"
-          edit_page: "Редактировать"
-          delete_page: "Удалить"
+          add: "Добавить новую страницу"
+          edit: "Редактировать"
+          delete: "Удалить"
         new:
           title: "Создание новой страницы"
         edit:
           title: "Редактирование страницы"
+      courses:
+        index:
+          title: "Список курсов"
+          add: "Добавить новый курс"
+          edit: "Редактировать"
+          delete: "Удалить"
+        new:
+          title: "Создание нового курса"
+        edit:
+          title: "Редактирование курса"
+      menus:
+        index:
+          title: "Список меню"
+          add: "Добавить новое меню"
+          elements: 'Элементы меню'
+          edit: "Редактировать"
+          delete: "Удалить"
+        new:
+          title: "Создание нового меню"
+        edit:
+          title: "Редактирование меню"
+      menu:
+        items:
+          index:
+            title: Элементы меню "%{menu}"
+            add: "Добавить новый элемент"
+          item:
+            edit: "Редактировать"
+            delete: "Удалить"
+          new:
+            title: "Создание нового элемента меню"
+            close: 'Закрыть'
+          edit:
+            title: "Редактирование элемента меню"
+            close: 'Закрыть'
 
-  activerecord:
-    models:
-      user: "пользователя"
-    attributes:
-      user:
-        first_name: "Имя"
-        last_name: "Фамилия"
-        password: "Пароль"
-      page:
-        title: "Название"
-        content: "Содержимое"
-        author: "Автор"
-        slug: "УРЛ"
+      subscribers:
+        index:
+          title: 'Подписчики'
+          edit: 'Редактировать'
+          delete: 'Удалить'
+
+
+
+
+
+
+    subscribers:
+      success_subscribe: 'Спасибо за вашу подписку!'
+
+

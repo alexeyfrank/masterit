@@ -1,7 +1,7 @@
-%h1= t('views.admin.users.index.title')
+%h1= t('.title')
 
 %br
-= link_to t('views.admin.users.index.add_new_user'), new_admin_user_path, :class => 'btn btn-primary'
+= link_to t('.add'), new_admin_user_path, class: 'btn btn-primary'
 %br
 %br
 
@@ -9,9 +9,9 @@
   %thead
     %tr
       %th.id-col #
-      %th= t('activerecord.attributes.users.email')
-      %th= t('activerecord.attributes.user.first_name')
-      %th= t('activerecord.attributes.user.last_name')
+      %th= User.human_attribute_name :email
+      %th= User.human_attribute_name :first_name
+      %th= User.human_attribute_name :last_name
       %th.actions-col
   %tbody
     - @users.each do |user|
@@ -21,5 +21,5 @@
         %td= user.first_name
         %td= user.last_name
         %td.actions-col
-          = link_to t('views.admin.users.index.edit_user'), edit_admin_user_path(user), :class => 'btn btn-info'
-          = link_to t('views.admin.users.index.delete_user'), admin_user_path(user), :method => :delete, :class => 'btn btn-alert'
+          = link_to t('.edit'), edit_admin_user_path(user), class: 'btn btn-info'
+          = link_to t('.delete'), admin_user_path(user), method: :delete, class: 'btn btn-alert'

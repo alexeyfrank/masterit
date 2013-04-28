@@ -1,7 +1,7 @@
-%h1 Список меню
+%h1= t '.title'
 
 %br
-= link_to "Добавить меню", new_admin_menu_path, class: 'btn btn-primary'
+= link_to t('.add'), new_admin_menu_path, class: 'btn btn-primary'
 %br
 %br
 
@@ -9,16 +9,16 @@
   %thead
     %tr
       %th.id-col #
-      %th Название
-      %th.count-col Количество элементов
+      %th= Menu.human_attribute_name :name
+      %th.count-col= Menu.human_attribute_name :items_count
       %th.actions-col
   %tbody
     - @menus.each do |menu|
       %tr
         %td.id-col= menu.id
-        %td= link_to menu.name, edit_admin_menu_path(menu)
-        %td.count-col= menu.menu_items.count
+        %td= link_to menu, edit_admin_menu_path(menu)
+        %td.count-col= menu.items.count
         %td.actions-col
-          = link_to "Редактировать", edit_admin_menu_path(menu), class: 'btn btn-info'
-          = link_to "Элементы меню", admin_menu_menu_items_path(menu), class: 'btn btn-success'
-          = link_to "Удалить", admin_menu_path(menu), method: :delete, class: 'btn btn-alert'
+          = link_to t('.edit'), edit_admin_menu_path(menu), class: 'btn btn-info'
+          = link_to t('.elements'), admin_menu_items_path(menu), class: 'btn btn-success'
+          = link_to t('.delete'), admin_menu_path(menu), method: :delete, class: 'btn btn-alert'

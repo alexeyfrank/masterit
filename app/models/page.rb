@@ -1,26 +1,35 @@
 class Page < ActiveRecord::Base
-  attr_accessible :author, :content, :title, :state, :tags, :tag_list, :slug
+  include PageRepository
 
-  belongs_to :author, :class_name => :User
+  attr_accessible :content, :title, :tags, :tag_list, :slug
 
-  validates :author, :presence => true
-  validates :title, :presence => true
-  validates :slug, :presence => true, :slug => true
+  #belongs_to :author, class_name: :User
+
+  #validates :author, presence: true
+  validates :title, presence: true
+  validates :slug, presence: true, slug: true
 
   acts_as_taggable_on :tags
 
-  state_machine :initial => :unpublished do
+  state_machine initial: :unpublished do
+    state :published
+    state :unpublished
+
     event :publish do
-      transition [:unpublished, :trashed] => :published
+      transition [:unpublished] => :published
     end
 
     event :unpublish do
-      transition [:trashed, :published] => :unpublished
+      transition [:published] => :unpublished
     end
+  end
 
-    event :trash do
-      transition all - :trashed => :trashed
-    end
+  def to_s
+    title
+  end
+
+  def to_param
+    slug
   end
 
 end

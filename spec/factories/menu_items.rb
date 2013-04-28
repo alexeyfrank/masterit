@@ -1,10 +1,10 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :menu_item do
-    name "MyString"
-    slug "MyString"
-    ancestry "MyString"
-    klass "MyString"
+  factory :item, class: 'Menu::Item' do
+    name
+    slug
+    position
+    association :menu
   end
 end

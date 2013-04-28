@@ -47,3 +47,6 @@ gem 'to_xls'
 gem "ckeditor"
 gem 'draper'
 gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'tconsole'
+gem 'virtus'
+gem 'usefull_scopes'

@@ -3,12 +3,9 @@ require 'spec_helper'
 describe Web::Admin::UsersController do
 
   before do
-    @user = create(:user)
+    @user = create :user
     sign_in @user
-    @default_params = {
-      :email => 'test_user@test.com',
-      :password => '12345'
-    }
+    @attrs = attributes_for :user
   end
 
   it 'should get :index' do
@@ -22,22 +19,22 @@ describe Web::Admin::UsersController do
   end
 
   it 'should post :create' do
-    post :create, :user => @default_params
-    expect(response).to be_success
-    user = User.find_by_email(@default_params[:email])
-    user.should_not be_nil
+    post :create, user: @attrs
+    expect(response).to be_redirect
+    user = User.find_by_email(@attrs[:email])
+    expect(user).to_not be_nil
   end
 
   it 'should put :update' do
-    put :update, :id => @user.id, :user => @default_params
+    put :update, id: @user.id, user: @attrs
     user = User.find(@user)
-    user.email.should == @default_params[:email]
-    expect(response).to be_success
+    expect(user.email).to eq(@attrs[:email])
+    expect(response).to be_redirect
   end
 
   it 'should delete :destroy' do
-    delete :destroy, :id => @user.id
+    delete :destroy, id: @user.id
     expect(response).to be_redirect
-    User.exists?(@user).should be_false
+    expect(User.exists? @user).to be_false
   end
 end

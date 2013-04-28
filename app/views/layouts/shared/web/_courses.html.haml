@@ -1,0 +1,11 @@
+.container.courses
+  .row
+    - Course.web.each do |course|
+      .span4
+        .thumbnail
+          %img{ src: course.preview.thumb.url, style: "width:300px; height:200px;" }
+          .caption
+            %h3
+              = link_to course.title, course_path(course)
+              = link_to 'Записаться!', '#', class: 'btn btn-primary pull-right'
+            = course.content.html_safe

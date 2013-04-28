@@ -1,34 +1,42 @@
 class Web::Admin::PagesController < Web::Admin::ApplicationController
   def index
-    @pages = Page.all #page(params[:page]).per(configus.admin_entities_per_page)
+    @pages = Page.web
   end
 
   def new
-    @page = Page.new
+    @page = ::Web::Admin::PageEditType.new
   end
 
   def create
-    if current_user.pages.create params[:page]
-      flash[:notice] = "Page was successfully created"
+    @page = ::Web::Admin::PageEditType.new params[:page]
+    if @page.save
+      flash_success
+      redirect_to admin_page_path(@page)
+    else
+      flash_error
+      render :new
     end
-    redirect_to admin_pages_path
   end
 
   def edit
-    @page = Page.find params[:id]
+    @page = ::Web::Admin::PageEditType.find params[:id]
   end
 
   def update
-    @page = Page.find params[:id]
+    @page = ::Web::Admin::PageEditType.find params[:id]
     if @page.update_attributes params[:page]
-      flash[:notice] = "Page was successfully created"
+      flash_success
+      redirect_to admin_page_path(@page)
+    else
+      flash_error
+      render :edit
     end
-    render :edit
   end
 
   def destroy
     @page = Page.find params[:id]
-    @page.delete
+    @page.destroy
+    flash_success
     redirect_to admin_pages_path
   end
 end

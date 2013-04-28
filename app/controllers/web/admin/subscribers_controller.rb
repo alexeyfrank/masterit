@@ -1,25 +1,27 @@
 class Web::Admin::SubscribersController < Web::Admin::ApplicationController
   def index
-    @subscribers = Subscriber.all #.page(params[:page]).per(configus.admin_entities_per_page)
+    @subscribers = Subscriber.web
   end
 
   def edit
-    @subscriber = Subscriber.find params[:id]
+    @subscriber = ::Web::Admin::SubscriberEditType.find params[:id]
   end
 
   def update
-    @subscriber = Subscriber.find params[:id]
+    @subscriber = ::Web::Admin::SubscriberEditType.find params[:id]
     if @subscriber.update_attributes params[:subscriber]
-      flash[:notice] = "Subscriber successfully updated"
+      flash_success
+      redirect_to edit_admin_subscriber_path(@subscriber)
     else
-      flash[:error] = "Subscriber has some errors"
+      flash_error
+      render :edit
     end
-    render :edit
   end
 
   def destroy
     @subscriber = Subscriber.find params[:id]
-    @subscriber.delete
+    @subscriber.destroy
+    flash_success
     redirect_to admin_subscribers_path
   end
 end
