@@ -4,8 +4,8 @@ module CourseRepository
 
   included do
     scope :active, -> { where(state: :active) }
-    scope :web, -> { asc_by_position.active }
-    scope :admin, -> { asc_by_position }
+    scope :web, -> { asc_by(:position).active }
+    scope :admin, -> { asc_by(:position) }
   end
 
 end
