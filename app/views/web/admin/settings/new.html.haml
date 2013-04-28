@@ -12,8 +12,8 @@
   - if @settings[:logo]
     = image_tag "/#{@settings[:header_image]}"
   = f.input :header_image, input_html: { value: @settings[:header_image] }, as: :file
- 
+
   = f.input :emergency_call, as: :ckeditor, input_html: { value: @settings[:emergency_call], class: 'span6' }, label: 'Экстренное объявление'
-  = f.input :emergency_call, as: :ckeditor, input_html: { value: @settings[:about_center], class: 'span6' }, label: 'Текст о центре'
+  = f.input :about_center, as: :ckeditor, input_html: { value: @settings[:about_center], class: 'span6' }, label: 'Текст о центре'
 
   = f.submit 'Сохранить настройки', class: 'btn btn-primary'

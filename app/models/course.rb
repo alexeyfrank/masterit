@@ -19,4 +19,8 @@ class Course < ActiveRecord::Base
       transition [:active] => :inactive
     end
   end
+
+  def to_s
+    title
+  end
 end

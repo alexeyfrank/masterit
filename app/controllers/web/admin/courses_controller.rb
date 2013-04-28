@@ -11,7 +11,7 @@ class Web::Admin::CoursesController < Web::Admin::ApplicationController
     @course = ::Web::Admin::CourseEditType.new params[:course]
     if @course.save
       flash_success
-      redirect_to admin_course_path(@course)
+      redirect_to edit_admin_course_path(@course)
     else
       flash_error
       render :new
@@ -26,7 +26,7 @@ class Web::Admin::CoursesController < Web::Admin::ApplicationController
     @course = ::Web::Admin::CourseEditType.find params[:id]
     if @course.update_attributes params[:course]
       flash_success
-      redirect_to admin_course_path(@course)
+      redirect_to edit_admin_course_path(@course)
     else
       flash_error
       render :edit

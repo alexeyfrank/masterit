@@ -1,4 +1,4 @@
-- if Settings.emergency_call.present?
+- if ::Settings.emergency_call.present?
   .alert.fade.in.alert-success
     %h4
-      = Settings.emergency_call.html_safe
+      = ::Settings.emergency_call.html_safe

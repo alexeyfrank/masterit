@@ -3,6 +3,14 @@ class Web::ApplicationController < ApplicationController
   include Web::MenuHelper
   include ::FlashHelper
 
-  helper_method :current_user, :signed_in?, :main_page?
 
+  def courses
+    Course.web
+  end
+
+  def main_page?
+    false
+  end
+
+  helper_method :current_user, :signed_in?, :main_page?, :courses
 end

@@ -2,13 +2,13 @@
 
 class CoursePreviewUploader < CarrierWave::Uploader::Base
 
-  #include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   storage :file
   # storage :fog
 
   def store_dir
-    "system/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "system/uploads/courses/#{mounted_as}/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -28,6 +28,6 @@ class CoursePreviewUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-     process :scale => [250, 250]
+     process :resize_to_fill => [300, 200]
   end
 end

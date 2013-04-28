@@ -7,6 +7,8 @@ Masterit::Application.routes.draw do
     resource :session
     resources :subscribers
 
+    resources :courses, only: [:show]
+
     namespace :admin do
       root :to => 'dashboard#index'
 
