@@ -1,0 +1,10 @@
+.masthead
+  .call-to-us.pull-right
+    %span.phone Звоните:
+    %br
+    %span.phone= Settings.phone
+    = link_to "Подписаться!", new_subscriber_path, class: 'subscribe-btn btn btn-success'
+
+  %h1.muted
+    = link_to '', root_path, class: 'brand'
+%hr

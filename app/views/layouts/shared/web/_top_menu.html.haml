@@ -1,0 +1,17 @@
+.navbar
+  .navbar-inner
+    .container
+      %ul.nav
+        - top_menu_items.each do |item|
+          - if item.children.count > 0
+            %li.dropdown{ class: menu_item_class(item) }
+              %a.dropdown-toggle{ href: show_page_path(item.slug), role: 'button', id: "menu-item-#{ item.id }", data: { toggle: "dropdown", target: show_page_path(item.slug) } }
+                = item.name
+                %b.caret
+              %ul.dropdown-menu{ role: 'menu', :"aria-labelledby" => "menu-item-#{item.id}" }
+                - item.children.each do |child|
+                  %li
+                    = link_to child.name, show_page_path(child.slug)
+          - else
+            %li{ class: menu_item_class(item) }
+              = link_to item.name, show_page_path(item.slug)

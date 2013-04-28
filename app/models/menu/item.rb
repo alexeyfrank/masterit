@@ -16,4 +16,5 @@ class Menu::Item < ActiveRecord::Base
     self.where(menu_id: menu_id).arrange(:order => :position)
   end
 
+
 end

@@ -1,0 +1,4 @@
+- if @sub_items
+  %ul.nav.nav-list.bs-docs-sidenav.affix
+    - @sub_items.each do |item|
+      %li= link_to item.name, show_page_path(item.slug)

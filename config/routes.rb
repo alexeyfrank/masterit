@@ -1,4 +1,3 @@
-
 Masterit::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -15,6 +14,8 @@ Masterit::Application.routes.draw do
       resources :users
       resources :pages
       resources :subscribers
+      resources :courses
+
       resources :menus do
         scope module: :menu do
           resources :items

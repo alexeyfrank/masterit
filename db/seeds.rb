@@ -13,6 +13,7 @@
   Settings.phone = "11 11 11"
   Settings.emergency_call = ""
   Settings.emergency_call_enabled = 0
+  Settings.about_center = "Text about center"
 # endregion
 
 # region default menu

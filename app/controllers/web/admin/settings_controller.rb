@@ -12,7 +12,8 @@ class Web::Admin::SettingsController < Web::Admin::ApplicationController
     store_settings :logo
     store_settings :header_image
     store_settings :emergency_call
-    store_settings :emergency_call_enabled
+    store_settings :about_center
+    #store_settings :emergency_call_enabled
 
     flash[:notice] = "Settings was successfully updated"
     redirect_to new_admin_setting_path

@@ -1,0 +1,29 @@
+%h1= t '.title'
+
+%br
+= link_to t('.add'), new_admin_course_path, class: 'btn btn-primary'
+%br
+%br
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th.id-col #
+      %th= Course.human_attribute_name :title
+      %th= Course.human_attribute_name :state
+      %th= Course.human_attribute_name :position
+      %th= Page.human_attribute_name :created_at
+      %th.actions-col
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td.id-col= course.id
+        %td= link_to course, edit_admin_course_path(course)
+        %td= course.human_state_name
+        %td= course.position
+        %td= l course.created_at
+        %td= l course.updated_at
+        %td.actions-col
+          = link_to t('.edit'), edit_admin_course_path(course), class: 'btn btn-info'
+          = link_to t('.delete'), admin_course_path(course), method: :delete, class: 'btn btn-alert'
+
