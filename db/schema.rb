@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428072226) do
+ActiveRecord::Schema.define(:version => 20130429145419) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string    "data_file_name",                  :null => false
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20130428072226) do
     t.timestamp "updated_at",                 :null => false
     t.boolean   "in_timepad"
     t.boolean   "in_google_drive"
+    t.integer   "course_id"
   end
 
   add_index "subscribers", ["email"], :name => "index_subscribers_on_email"

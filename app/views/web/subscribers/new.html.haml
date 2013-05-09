@@ -5,7 +5,8 @@
     = f.input :fio, label: false, placeholder: Subscriber.human_attribute_name(:fio), input_html: { class: 'span4' }
     = f.input :phone, label: false, placeholder: Subscriber.human_attribute_name(:phone), input_html: { class: 'span4' }
     = f.input :email, label: false, placeholder: Subscriber.human_attribute_name(:email), input_html: { class: 'span4' }
+    = f.input :course_id, collection: Course.web
     = f.input :notify_about_center_events
     = f.input :processing_personal_data
   .modal-footer
-    = f.submit 'Подписаться!', class: 'btn btn-success'
+    = f.submit 'Записаться!', class: 'btn btn-success'

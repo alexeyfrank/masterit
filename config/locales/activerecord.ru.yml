@@ -32,6 +32,7 @@ ru:
         email: 'Email'
         phone: 'Телефон'
         created_at: 'Дата подписки'
+        course_id: 'Курс'
         processing_personal_data: 'Разрешить обработку персональных данных'
         notify_about_center_events: 'Оповещать меня о событиях Центра'
 

@@ -3,7 +3,8 @@ class Web::SubscribersController < Web::ApplicationController
   layout false
   
   def new
-    @subscriber = ::Web::SubscriberRegistrationType.new
+    attrs = { course_id: params[:course_id] }
+    @subscriber = ::Web::SubscriberRegistrationType.new attrs
   end
 
   def create
