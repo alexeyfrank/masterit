@@ -50,3 +50,12 @@ gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'tconsole'
 gem 'virtus'
 gem 'usefull_scopes'
+
+group :development do
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+  gem 'capistrano-ext'
+  gem 'capistrano_colors'
+  gem 'capi'
+  gem 'capistrano-unicorn', require: false
+end

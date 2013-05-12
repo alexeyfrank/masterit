@@ -7,6 +7,8 @@ class Course < ActiveRecord::Base
 
   mount_uploader :preview, CoursePreviewUploader
 
+  has_many :subscribers
+
   state_machine initial: :inactive do
     state :inactive
     state :active

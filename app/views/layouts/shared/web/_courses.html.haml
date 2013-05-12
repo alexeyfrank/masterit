@@ -7,5 +7,5 @@
           .caption
             %h3
               = link_to course.title, course_path(course)
-              = link_to 'Записаться!', '#', class: 'btn btn-primary pull-right'
+              = link_to 'Записаться!', new_subscriber_path(course_id: course.id), class: 'subscribe-btn btn btn-primary pull-right'
             = course.content.html_safe
