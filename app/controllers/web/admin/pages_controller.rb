@@ -11,7 +11,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
     @page = ::Web::Admin::PageEditType.new params[:page]
     if @page.save
       flash_success
-      redirect_to admin_page_path(@page)
+      redirect_to edit_admin_page_path(@page)
     else
       flash_error
       render :new
@@ -19,14 +19,14 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   end
 
   def edit
-    @page = ::Web::Admin::PageEditType.find params[:id]
+    @page = ::Web::Admin::PageEditType.find_by_slug! params[:id]
   end
 
   def update
-    @page = ::Web::Admin::PageEditType.find params[:id]
+    @page = ::Web::Admin::PageEditType.find_by_slug! params[:id]
     if @page.update_attributes params[:page]
       flash_success
-      redirect_to admin_page_path(@page)
+      redirect_to edit_admin_page_path(@page)
     else
       flash_error
       render :edit
