@@ -34,7 +34,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   end
 
   def destroy
-    @page = Page.find params[:id]
+    @page = Page.find_by_slug! params[:id]
     @page.destroy
     flash_success
     redirect_to admin_pages_path

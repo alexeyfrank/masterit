@@ -5,7 +5,7 @@
         - top_menu_items.each do |item|
           - if item.children.count > 0
             %li.dropdown{ class: menu_item_class(item) }
-              %a.dropdown-toggle{ href: show_page_path(item.slug), role: 'button', id: "menu-item-#{ item.id }", data: { toggle: "dropdown", target: show_page_path(item.slug) } }
+              %a.dropdown-toggle{ href: show_page_path(item.slug), role: 'button', id: "menu-item-#{ item.id }", data: { toggle: "dropdown", hover: "dropdown", delay: 1000, close_others: false, target: show_page_path(item.slug) } }
                 = item.name
                 %b.caret
               %ul.dropdown-menu{ role: 'menu', :"aria-labelledby" => "menu-item-#{item.id}" }

@@ -1,9 +1,8 @@
 .masthead
   .call-to-us.pull-right
     %span.phone Звоните:
-    %br
-    %span.phone= ::Settings.phone
-    = link_to "Подписаться!", new_subscriber_path, class: 'subscribe-btn btn btn-success'
+    %span.phone.phone-red= ::Settings.phone
+    = link_to "Подписаться!", new_subscriber_path, class: 'subscribe-btn subscribe-btn-header btn btn-large btn-success'
 
   %h1.muted
     = link_to '', root_path, class: 'brand'
